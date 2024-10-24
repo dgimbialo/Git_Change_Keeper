@@ -1,5 +1,9 @@
 # Git_Change_Keeper
-This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory. 
+You can view your change history without committed.
+
+The Python script saves the states of each modified file at a specified interval.
+
+This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory.
 
 The script calculates hashes for the differences and stores them, allowing it to detect new changes on subsequent runs.
 
@@ -28,6 +32,6 @@ The user can also configure the monitoring interval.
 **--output_path** (optional): Path to the folder where changes will be saved. The default is Keeper_Of_Changes.
 
 
-## Example:
+## Example using all arguments:
 
  - **python Git_Change_Keeper.py /path/to/repo --interval 300 --output_path /path/to/output**
