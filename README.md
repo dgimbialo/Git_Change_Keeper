@@ -1,7 +1,7 @@
 # Git_Change_Keeper
 You can view your change history without committing.
 
-The Python script saves the states of each modified file at a specified interval.
+The Python script saves the state of each modified file at a specified interval.
 
 This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory.
 
