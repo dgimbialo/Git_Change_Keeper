@@ -22,7 +22,7 @@ The user can also configure the monitoring interval.
  - **python3 Git_Change_Keeper.py /path/to/your/repository**
 
 
-# Options:
+# Options
 **python Git_Change_Keeper.py   repo_path  [--interval <check_interval>] [--output_path <output_directory>]**
 
 **repo_path**: Path to the folder containing the Git repository.
