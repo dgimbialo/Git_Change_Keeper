@@ -3,7 +3,7 @@ You can view your change history without committing.
 
 The Python script saves the state of each modified file at a specified interval.
 
-This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory.
+This script monitors a specified Git repository for changes and saves the detected differences into an output directory.
 
 The script calculates hashes for the differences and stores them, allowing it to detect new changes on subsequent runs.
 
