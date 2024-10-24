@@ -1,13 +1,13 @@
 # Git_Change_Keeper
-*This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory.* 
+This Python script monitors a specified Git repository for changes and saves the detected differences into an output directory. 
 
-*The script calculates hashes for the differences and stores them, allowing it to detect new changes on subsequent runs.*
+The script calculates hashes for the differences and stores them, allowing it to detect new changes on subsequent runs.
 
-*The script runs periodically based on a specified interval.*
+The script runs periodically based on a specified interval.
 
-*It supports custom paths for both the Git repository and the output directory where changes are saved.*
+It supports custom paths for both the Git repository and the output directory where changes are saved.
 
-*The user can also configure the monitoring interval.*
+The user can also configure the monitoring interval.
 
 # How to Use
 
