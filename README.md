@@ -1,5 +1,5 @@
 # Git_Change_Keeper
-You can view your change history without committed.
+You can view your change history without committing.
 
 The Python script saves the states of each modified file at a specified interval.
 
