@@ -14,9 +14,14 @@ How to Use
 
 Options:
 python Git_Change_Keeper.py <repo_path> [--interval <check_interval>] [--output_path <output_directory>]
+
 <repo_path>: Path to the folder containing the Git repository.
+
 --interval (optional): Monitoring interval in seconds. It must be a positive integer and less than or equal to 100000. The default is 600 seconds.
+
 --output_path (optional): Path to the folder where changes will be saved. The default is Keeper_Of_Changes.
 
+
 Example:
+
 python Git_Change_Keeper.py /path/to/repo --interval 300 --output_path /path/to/output
