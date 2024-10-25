@@ -16,10 +16,10 @@ The user can also configure the monitoring interval.
 # How to Use
 
 ### 1. Install Dependencies:
- - **pip install gitpython**
+ - pip install gitpython
 
 ### 2. Running the Script:
- - **python3 Git_Change_Keeper.py /path/to/your/repository**
+ - py -3 Git_Change_Keeper.py /path/to/your/repository
 
 
 # Options
