@@ -1,37 +1,98 @@
-# Git_Change_Keeper
-You can view your change history without committing.
+# Git Change Keeper
 
-The Python script saves the state of each modified file at a specified interval.
+> **Track your uncommitted work** — automatically saves every new diff to a folder so you never lose a work-in-progress state.
 
-This script monitors a specified Git repository for changes and saves the detected differences into an output directory.
+Git Change Keeper monitors a Git repository for changes and saves the detected diffs into timestamped folders, without requiring you to commit anything.  It compares SHA-256 hashes of each diff to avoid writing duplicate snapshots.
 
-The script calculates hashes for the differences and stores them, allowing it to detect new changes on subsequent runs.
+---
 
-The script runs periodically based on a specified interval.
+## Features
 
-It supports custom paths for both the Git repository and the output directory where changes are saved.
+| Feature | Description |
+|---|---|
+| **GUI launcher** | Settings window lets you pick paths with a file-browser dialog |
+| **Background operation** | After you click *Start Monitoring* the window hides and monitoring runs silently |
+| **System-tray icon** | A green icon appears near the Windows clock; right-click for the context menu |
+| **Tray context menu** | Show Settings · Stop Monitoring · Exit |
+| **Hash-based deduplication** | Only genuinely new diffs are saved |
+| **Configurable interval** | Any positive integer up to 100 000 seconds |
 
-The user can also configure the monitoring interval.
+---
 
-# How to Use
+## Requirements
 
-### 1. Install Dependencies:
- - pip install gitpython
+- **Python 3.10+**
+- **Windows** (system tray is tested on Windows 10/11; Linux/macOS may need extra system libs for `pystray`)
 
-### 2. Running the Script:
- - py -3 Git_Change_Keeper.py /path/to/your/repository
+---
 
+## Installation
 
-# Options
-**python Git_Change_Keeper.py   repo_path  [--interval <check_interval>] [--output_path <output_directory>]**
+```bash
+pip install gitpython pillow pystray
+```
 
-**repo_path**: Path to the folder containing the Git repository.
+---
 
-**--interval** (optional): Monitoring interval in seconds. It must be a positive integer and less than or equal to 100000. The default is 600 seconds.
+## Usage
 
-**--output_path** (optional): Path to the folder where changes will be saved. The default is Keeper_Of_Changes.
+### Start the GUI
 
+```bash
+python Git_Change_Keeper.py
+```
 
-## Example using all arguments:
+The settings window opens:
 
- - **python Git_Change_Keeper.py /path/to/repo --interval 300 --output_path /path/to/output**
+1. **Repository Path** — click *Browse…* or type the full path to your local Git repository.
+2. **Output Directory** — folder where diff snapshots are saved (default: `Keeper_Of_Changes`).
+3. **Check Interval** — how often to check for changes, in seconds (default: `600`).
+4. Click **Start Monitoring**.
+
+The window disappears and a small green icon appears in the system tray (near the clock in the bottom-right corner of the screen).
+
+### System-Tray Controls
+
+Right-click the tray icon to open the context menu:
+
+| Menu item | Action |
+|---|---|
+| **Show Settings** | Brings the settings window back |
+| **Stop Monitoring** | Pauses monitoring (icon stays; you can restart from Settings) |
+| **Exit** | Stops monitoring and removes the tray icon |
+
+> **Tip:** If the icon is hidden, click the **^** (Show hidden icons) arrow in the taskbar notification area.
+
+---
+
+## Output Structure
+
+Each time new changes are detected a timestamped sub-folder is created:
+
+```
+Keeper_Of_Changes/
+├── hashes.txt               ← internal hash store (do not edit)
+├── changes_20240501_120000/
+│   ├── main.py.diff
+│   └── utils.py.diff
+└── changes_20240501_130015/
+    └── README.md.diff
+```
+
+Each `.diff` file contains the raw output of `git diff` for that file at the moment the change was detected.
+
+---
+
+## Example
+
+```
+python Git_Change_Keeper.py
+# → Settings window opens
+# → Select C:\Projects\my-repo  as the repository
+# → Leave output directory as Keeper_Of_Changes
+# → Set interval to 300 (5 minutes)
+# → Click Start Monitoring
+# → Window hides; green tray icon appears
+# → Every 5 minutes new diffs (if any) are saved automatically
+```
+
