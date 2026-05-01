@@ -1,5 +1,11 @@
 # Git Change Keeper
 
+<img width="546" height="263" alt="Screenshot 2026-02-23 160210 (1)" src="https://github.com/user-attachments/assets/ecb592cc-921d-41eb-81e0-03ad646c6003" />
+
+<img width="295" height="181" alt="Screenshot 2026-02-23 160320 (1)" src="https://github.com/user-attachments/assets/173963e7-590e-4a91-94e9-0e1095eb1110" />
+
+
+
 > **Track your uncommitted work** — automatically saves every new diff to a folder so you never lose a work-in-progress state.
 
 Git Change Keeper monitors a Git repository for changes and saves the detected diffs into timestamped folders, without requiring you to commit anything.  It compares SHA-256 hashes of each diff to avoid writing duplicate snapshots.
